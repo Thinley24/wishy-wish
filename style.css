@@ -340,16 +340,16 @@ body {
 
 .message-background {
   position: fixed;
-  top: -810px;
-  width: 800px;
-  height: 320px;
+  top: -720px;
+  width: 1200px;
+  height: 240px;
   background-image: rgba(0, 0, 0, 0.8);
   color: white;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
   padding: 20px;
-  margin-left: -230px;
+  margin-left: -440px;
   border: 2px solid #ffffff; /* White border */
   border-radius: 10px;
   z-index: 1;
