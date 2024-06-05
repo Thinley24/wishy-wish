@@ -8,23 +8,24 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #25252b;
-  /* background-color: #e67b92; */
 }
 
-.gift-container {
+.gift {
   display: flex;
-  justify-self: center;
+  flex-direction: column;
   align-items: center;
-  position: absolute;
-  bottom: 20%;
 }
 
 .gift-container.active {
   animation: Vibration 1s ease forwards;
+}
+
+.gift-box {
+  height: 200px;
+  width: 300px;
+  background-color: #eb9c4a;
+  animation: Bounce 4s ease infinite forwards;
 }
 
 @keyframes Vibration {
@@ -43,14 +44,6 @@ body {
   100% {
     transform: scale(1, 1);
   }
-}
-
-.gift-container .gift-box {
-  position: absolute;
-  height: 200px;
-  width: 300px;
-  background-color: #eb9c4a;
-  animation: Bounce 4s ease infinite forwards;
 }
 
 @keyframes Bounce {
@@ -94,18 +87,19 @@ body {
   top: -90px;
   left: -20px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 100;
   transition: 0.5s ease;
 }
 
 .click.active {
   transition-delay: 1s;
-  transform: translateY(-240px);
+  transform: translateY(7vw);
 }
 
 .click::before {
   content: "";
   position: absolute;
+  top: 0;
   width: 50px;
   height: 90px;
   background-color: #e76f51;
@@ -117,10 +111,8 @@ body {
   content: "";
   position: absolute;
   width: 5px;
-  height: 0;
   border-bottom: 60px solid #e76f51;
   border-top: 60px solid #e76f51;
-  border-left: 0 solid transparent;
   border-right: 60px solid transparent;
   transform: rotate(-90deg);
   top: -93px;
@@ -129,13 +121,9 @@ body {
 
 .gift-container .shadow {
   content: "";
+  margin-top: 50vh;
   position: relative;
-  background: rgba(0, 0, 0, 0.4);
-  width: 350px;
-  height: 40px;
-  top: 100px;
-  border-radius: 50%;
-  left: -25px;
+  z-index: 100px;
   animation: BounceOut 4s ease infinite forwards;
 }
 
@@ -160,7 +148,7 @@ body {
 
 .text {
   position: absolute;
-  top: 0;
+  top: 50vh;
   width: 260px;
   background: #eb9c4a;
   padding: 10px;
@@ -180,8 +168,12 @@ body {
 }
 
 .text.deactivate {
-  top: 0;
+  top: 50vh;
   transition-delay: 0.2s;
+}
+
+.letter-ballon {
+  max-width: 100vw;
 }
 
 .balloon {
@@ -220,7 +212,7 @@ body {
 }
 
 .balloon:nth-child(2) {
-  left: 80px;
+  left: 10vw;
   background-color: rgba(0, 0, 255, 0.5);
   animation-duration: 3s;
 }
@@ -230,7 +222,7 @@ body {
 }
 
 .balloon:nth-child(3) {
-  left: 150px;
+  left: 22vw;
   background-color: rgba(255, 255, 0, 0.5);
   animation-duration: 2s;
 }
@@ -240,7 +232,7 @@ body {
 }
 
 .balloon:nth-child(4) {
-  left: 250px;
+  left: 30vw;
   background-color: rgba(0, 128, 0, 0.5);
   animation-duration: 3s;
 }
@@ -250,7 +242,7 @@ body {
 }
 
 .balloon:nth-child(5) {
-  left: 420px;
+  left: 20vw;
   background-color: rgba(192, 1, 5, 0.5);
   animation-duration: 4s;
 }
@@ -260,7 +252,7 @@ body {
 }
 
 .balloon:nth-child(6) {
-  left: 500px;
+  left: 30vw;
   background-color: rgba(255, 125, 0, 0.5);
   animation-duration: 2s;
 }
@@ -270,7 +262,7 @@ body {
 }
 
 .balloon:nth-child(7) {
-  left: 590px;
+  left: 50vw;
   background-color: rgba(244, 38, 113, 0.5);
   animation-duration: 4s;
 }
@@ -280,7 +272,7 @@ body {
 }
 
 .balloon:nth-child(8) {
-  left: 1390px;
+  left: 59vw;
   background-color: rgba(10, 166, 238, 0.674);
   animation-duration: 5s;
 }
@@ -290,7 +282,7 @@ body {
 }
 
 .balloon:nth-child(9) {
-  left: 9900px;
+  left: 75vw;
   background-color: rgba(100, 175, 35, 0.674);
   animation-duration: 2s;
 }
@@ -300,7 +292,7 @@ body {
 }
 
 .balloon:nth-child(10) {
-  left: 1100px;
+  left: 60vw;
   background-color: rgb(154, 10, 147);
   animation-duration: 3s;
 }
@@ -310,7 +302,7 @@ body {
 }
 
 .balloon:nth-child(11) {
-  left: 1280px;
+  left: 70vw;
   background-color: rgba(192, 1, 5, 0.5);
   animation-duration: 4s;
 }
@@ -320,7 +312,7 @@ body {
 }
 
 .balloon:nth-child(12) {
-  left: 1340px;
+  left: 80vw;
   background-color: rgba(244, 38, 113, 0.5);
   animation-duration: 3s;
 }
@@ -339,25 +331,27 @@ body {
 }
 
 .message-background {
-  position: fixed;
-  top: -720px;
-  width: 1200px;
-  height: 240px;
   background-image: rgba(0, 0, 0, 0.8);
   color: white;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
   padding: 20px;
-  margin-left: -440px;
-  border: 2px solid #ffffff; /* White border */
+  border: 1px solid #ffffff; /* White border */
   border-radius: 10px;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .message-background {
     font-family: "Great Vibes", cursive;
+    font-size: 18px;
+  }
+
+  .click.active {
+    transition-delay: 1ms;
+    transform: translateY(30vw);
   }
 }
 

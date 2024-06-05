@@ -36,7 +36,7 @@ click.addEventListener("click", () => {
           messageBackground.style.display === "none" ||
           messageBackground.style.display === ""
         ) {
-          messageBackground.style.display = "block"; // Or 'flex' depending on your layout
+          messageBackground.style.display = "flex"; // Or 'flex' depending on your layout
         } else {
           messageBackground.style.display = "none";
         }
